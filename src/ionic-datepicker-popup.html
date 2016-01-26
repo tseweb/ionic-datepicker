@@ -10,20 +10,20 @@
   </div>
   <div class="col col-80 drop_down ">
     <div class="row select_section">
-      
-       
+
+
           <label class="item item-input item-select col col-50 month_select">
             <select ng-model="currentMonth" ng-change="monthChanged(currentMonth)" class="month_select" ng-options="month as month for month in monthsList " ng-selected="month == currentMonthSelected">
             </select>
           </label>
- 
-     
-       
+
+
+
           <label class="item item-input item-select col col-50 year_select">
             <select ng-model="currentYear" ng-change="yearChanged(currentYear)" class="year_select" ng-options="year as year for year in yearsList " ng-selected="year == year">
             </select>
           </label>
-      
+
     </div>
   </div>
   <div class="col col-10 right_arrow" ng-click="!nextMonthDisable && nextMonth()"
@@ -34,9 +34,9 @@
   </button>
 </div>
 </div>
-<div class="calendar_grid">
+<div class="calendar_grid" ng-show="!hideCalendar">
   <div class="row">
-    <div class="col" ng-repeat="weekName in weekNames track by $index" style="font-weight: bold" ng-bind="weekName"> 
+    <div class="col" ng-repeat="weekName in weekNames track by $index" style="font-weight: bold" ng-bind="weekName">
       </div>
     </div>
     <div style="height: 180px;">

@@ -17,11 +17,11 @@
                 inputObj: "=inputObj"
             },
             link: function (scope, element, attrs) {
-                
-                if(typeOf scope.inputObj.inputDate === 'string'){
+
+                if(typeof (scope.inputObj.inputDate) === 'string'){
                     scope.inputObj.inputDate = new Date(scope.inputObj.inputDate);
                 }
-                
+
                 scope.currentMonth = '';
                 scope.currentYear = '';
                 scope.disabledDates = [];
@@ -44,6 +44,8 @@
                 scope.clearButtonType = scope.inputObj.clearButtonType ? (scope.inputObj.clearButtonType) : 'button-stable cal-button';
                 scope.dateFormat = scope.inputObj.dateFormat ? (scope.inputObj.dateFormat) : 'dd-MM-yyyy';
                 scope.closeOnSelect = scope.inputObj.closeOnSelect ? (scope.inputObj.closeOnSelect) : false;
+                scope.hideCalendar = scope.inputObj.hideCalendar ? (scope.inputObj.hideCalendar) : false;
+                scope.popupCssClass = scope.inputObj.popupCssClass ? (scope.inputObj.popupCssClass) : '';
 
                 scope.enableDatesFrom = {
                     epoch: 0,
@@ -451,7 +453,7 @@
                             templateUrl: 'ionic-datepicker-popup.html',
                             title: scope.titleLabel,
                             subTitle: '',
-                            cssClass:'picker-body',
+                            cssClass: 'picker-body' + (scope.popupCssClass ? ' ' + scope.popupCssClass : ''),
                             scope: scope,
                             buttons: buttons
                         });
